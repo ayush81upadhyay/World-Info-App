@@ -26,7 +26,17 @@ const router = createBrowserRouter([
             }
         ]
     }
-])
+], {
+    future: {
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+      v7_partialHydration: true,
+      v7_skipActionErrorRevalidation: true,
+      v7_relativeSplatPath: true
+    }
+  })
 
 root = createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router}/>);
+root.render(<RouterProvider future={{
+    v7_startTransition: true,
+  }} router={router}/>);
